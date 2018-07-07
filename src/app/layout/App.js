@@ -3,7 +3,7 @@ import {Container} from 'semantic-ui-react';
 import EventDashboard from '../../features/event/EventDashboard/EventDashboard';
 import NavBar from '../../features/nav/NavBar/NavBar';
 import { Route, Switch } from 'react-router-dom';
-import EventDetailedPage from '../../features/event/EventDetailed/EventDetailed';
+import EventDetailedPage from '../../features/event/EventDetailed/EventDetailedPage';
 import PeopleDashboard from '../../features/user/PeopleDashboard/PeopleDashboard';
 import UserDetailedPage from '../../features/user/UserDetailed/UserDetailed';
 import SettingsDashboard from '../../features/user/Settings/SettingsDashboard';
@@ -23,9 +23,10 @@ class App extends Component {
             <NavBar />
             <Container className="main">
               <Switch>
-                <Route path="/events" component={EventDashboard} />
+                <Route path="/events" exact component={EventDashboard} />
                 <Route path="/test" component={TestComponent} />
                 <Route path="/events/:id" component={EventDetailedPage} />
+                <Route path="/manage/:id" component={EventForm} />
                 <Route path="/people" component={PeopleDashboard} />
                 <Route path="/profile/:id" component={UserDetailedPage} />
                 <Route path="/settings" component={SettingsDashboard} />
